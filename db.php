@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "event_db";
+$host = "sql12.freesqldatabase.com";
+$user = "sql12772390";
+$pass = "icf4cMTzGA";
+$dbname = "sql12772390";
 
 // Create connection
 $conn = new mysqli($host, $user, $pass, $dbname);
