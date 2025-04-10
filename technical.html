@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Clubs | REC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 100.00,
+                minWidth: 100.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x8c3fff, 
+                backgroundColor: 0x0d0d0d, 
+                maxDistance: 23.00
+            });
+
+            const clubCards = document.querySelectorAll(".club-card");
+
+            clubCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add("show");
+                }, index * 300); // 300ms delay for each card
+            });
+        });
+    </script>
+    
+    <style>
+        #vanta-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .club-card {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 20px;
+            text-align: center;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(30px); /* Move down slightly */
+        }
+
+        .club-card.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .club-card h3 {
+            color: white;
+        }
+
+        .club-card img {
+            width: 100%;
+            height: 200px; /* Adjust height as needed */
+            object-fit: cover; /* Ensures the image covers the area */
+            border-radius: 10px; /* Keeps rounded corners */
+        }
+
+        .club-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        h2.text-center {
+            color: white;
+            margin-top: 50px;
+        }
+
+        .footer {
+            bottom: 0;
+            width: 100%;
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">REC Event Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5 text-white">
+        <h2 class="text-center">Technical Clubs</h2>
+        
+        <!-- First Row -->
+        <div class="row text-center mb-4">
+            <div class="col-md-4">
+                <div class="club-card shadow rounded" onclick="window.location.href='intellexa.html'">
+                    <img src="intellexa.jpeg" alt="Intellexa">
+                    <h3>Intellexa</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="club-card shadow rounded" onclick="window.location.href='devs.html'">
+                    <img src="devs.png" alt="Devs">
+                    <h3>Devs</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="club-card shadow rounded" onclick="window.location.href='ieee.html'">
+                    <img src="ieee.jpg" alt="IEEE">
+                    <h3>IEEE</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="row text-center">
+            <div class="col-md-4 offset-md-2">
+                <div class="club-card shadow rounded" onclick="window.location.href='gdc.html'">
+                    <img src="gdc.jpg" alt="GDC">
+                    <h3>GDC</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="club-card shadow rounded" onclick="window.location.href='uiphoria.html'">
+                    <img src="uiphoria.jpeg" alt="UiPhoria">
+                    <h3>UiPhoria</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        &copy; 2025 Rajalakshmi Engineering College | Event Registration Portal
+    </footer>
+</body>
+</html>

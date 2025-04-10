@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: event-registration
+    env: docker
+    plan: free
+    autoDeploy: true

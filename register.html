@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Background Effect */
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        /* Transparent Form (Glassmorphism) */
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        /* Form Labels */
+        .form-container .form-label {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Input Fields */
+        .form-container .form-control,
+        .form-container select {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        /* Placeholder Text */
+        .form-container .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Input & Select Focus Effect */
+        .form-container .form-control:focus,
+        .form-container select:focus {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border-color: white;
+            outline: none;
+        }
+
+        /* Transparent Dropdown Options */
+        .form-container select option {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        /* Button Styling */
+        .form-container .btn {
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .form-container .btn:hover {
+            background: #ff4444;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vanta-bg"></div>
+
+    <div class="container mt-5">
+        <h1 id="event-name" class="display-4 fw-bold text-center text-danger animate__animated animate__zoomIn">
+            Register for Event
+        </h1>
+        <div class="form-container mx-auto mt-4 animate__animated animate__fadeInUp" style="max-width: 500px;">
+            <form action="register.php" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dept" class="form-label">Department:</label>
+                    <input type="text" id="dept" name="dept" class="form-control" placeholder="Enter your department" required>
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Year:</label>
+                    <select id="year" name="year" class="form-control" required>
+                        <option value="" disabled selected>Select your year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="regno" class="form-label">Register No:</label>
+                    <input type="text" id="regno" name="regno" class="form-control" placeholder="Enter your register number" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile No:</label>
+                    <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Enter your mobile number" required>
+                </div>
+                <div class="mb-3">
+                    <label for="event" class="form-label">Event Name:</label>
+                    <input type="text" id="event" name="event" class="form-control" placeholder="Enter the event name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="club" class="form-label">Club Name:</label>
+                    <select id="club" name="club" class="form-control" required>
+                        <option value="" disabled selected>Select your club</option>
+                        <option value="Intellexa">Intellexa</option>
+                        <option value="Devs">Devs</option>
+                        <option value="IEEE">IEEE</option>
+                        <option value="GDC">GDC</option>
+                        <option value="Uiphoria">Uiphoria</option>
+                        <option value="Yuva Rec">Yuva Rec</option>
+                        <option value="Rotaract">Rotaract</option>
+                        <option value="EDC">EDC</option>
+                        <option value="Film Club">Film Club</option>
+                        <option value="Leo Club">Leo Club</option>
+                        <option value="Aristry Club">Aristry Club</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-danger w-100">Register</button>
+            </form>            
+        </div>
+    </div>
+
+    <script>
+        // Get event name from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const eventName = params.get('event');
+        if (eventName) {
+            document.getElementById('event-name').innerText = "Register for " + eventName;
+            document.getElementById('event').value = eventName; // Autofill event field
+        }
+    </script>
+
+    <!-- Vanta.js Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 100.00,
+            minWidth: 100.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x8c3fff, /* Purple lines */
+            backgroundColor: 0x0d0d0d, /* Dark background */
+            maxDistance: 23.00
+        });
+    </script>
+</body>
+</html>

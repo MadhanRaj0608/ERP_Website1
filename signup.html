@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html, body {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    place-items: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.container {
+    background: #fff;
+    max-width: 350px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+.container .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.input-box {
+    width: 100%;
+    margin-top: 15px;
+}
+.input-box input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+.input-box input:invalid {
+    border-color: red;
+}
+.button input {
+    width: 100%;
+    height: 40px;
+    font-size: 17px;
+    color: #fff;
+    background: linear-gradient(to right, #99004d 0%, #ff0080 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.button input:hover {
+    background: linear-gradient(to left, #99004d 0%, #ff0080 100%);
+}
+.switch {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #99004d;
+}
+.switch:hover { text-decoration: underline; }
+
+    </style>
+    <div class="container">
+        <div class="title">Sign Up</div>
+        <form id="signupForm">
+            <div class="input-box">
+                <input type="text" id="signupName" placeholder="Full Name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="signupEmail" placeholder="Email address" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="signupPassword" placeholder="Password" required minlength="6">
+            </div>
+            <div class="input-box">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Sign Up">
+            </div>
+        </form>
+        <div class="switch" onclick="window.location.href='index.html'">Already have an account? Login</div>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            validateSignup();
+        });
+
+        function validateSignup() {
+            let name = document.getElementById("signupName").value;
+            let email = document.getElementById("signupEmail").value;
+            let password = document.getElementById("signupPassword").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (name.trim() === "" || !email.includes("@") || password.length < 6) {
+                alert("Please enter valid details.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            alert("Signup Successful! Redirecting to login...");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>
