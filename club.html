@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Events</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 id="club-name" class="display-4 fw-bold text-success animate__animated animate__fadeIn">Club Events</h1>
+        <h2 class="mt-4 text-primary">Ongoing Events</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="register.html?event=hackathon" class="btn btn-primary w-100">Hackathon</a></li>
+            <li class="list-group-item"><a href="register.html?event=singing" class="btn btn-success w-100">Singing Contest</a></li>
+        </ul>
+        <h2 class="mt-4 text-danger">Upcoming Events</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="register.html?event=football" class="btn btn-warning w-100">Football Tournament</a></li>
+        </ul>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('club-name').innerText = params.get('club') + " Club Events";
+    </script>
+</body>
+</html>

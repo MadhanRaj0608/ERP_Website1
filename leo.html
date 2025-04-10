@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Club | REC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .event-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">REC Event Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h2 class="text-center text-white">LEO Club REC</h2>
+        <div class="container my-5">
+            <div class="row">
+                <!-- Carousel on the Left Side -->
+                <div class="col-md-6">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- First Slide (Image) -->
+                            <div class="carousel-item active" data-bs-interval="3000">
+                                <img src="LEO1.png" class="d-block w-100 fixed-media" alt="Slide 1">
+                            </div>
+                            <!-- Second Slide (Image) -->
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="LEO2.png" class="d-block w-100 fixed-media" alt="Slide 2">
+                            </div>
+                             
+                        </div>
+                        <!-- Previous and Next Buttons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- About Us on the Right Side -->
+                <div class="col-md-6 text-white">
+                    <h2>About LEO Club REC</h2>
+                     <p>Leo Club of REC is a youth organization affiliated with Lions Clubs International. Our vision is to empower youth to become proactive leaders who contribute meaningfully to their communities.</p>
+                     <div class="d-flex justify-content-center align-items-center mt-3">
+                        <a href="https://www.instagram.com/leoclubrec/" target="_blank" class="insta-link d-flex align-items-center text-decoration-none">
+                            <img src="insta icon.webp" alt="Instagram" class="insta-icon">
+                            <span class="insta-text ms-2">@LEO REC</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CSS for Fixed Media Size -->
+        <style>
+            .fixed-media {
+                width: 100%;
+                height: 350px; /* Reduced height */
+                object-fit: cover; /* Ensures proper fit */
+            }
+            .insta-icon {
+        width: 40px;
+        height: 40px;
+        margin-top: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .insta-text {
+        font-weight: bold;
+        font-size: 18px;
+        color: white; /* Adjust color if needed */
+    }
+
+    .insta-link {
+        text-decoration: none; /* Removes underline */
+    }
+    .insta-icon:hover {
+        transform: scale(1.2);
+    }
+        </style>
+        
+        <!-- JavaScript to Control Carousel Timing -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const carousel = document.getElementById("carouselExampleIndicators");
+                const video = document.getElementById("carouselVideo");
+                const carouselInstance = new bootstrap.Carousel(carousel, { interval: 3000, pause: false });
+        
+                carousel.addEventListener("slide.bs.carousel", function (event) {
+                    if (event.to === 2) { // Index of video slide
+                        carouselInstance.pause(); // Stop automatic sliding
+                        video.play();
+                        
+                        video.onended = function () {
+                            carouselInstance.next(); // Move to next slide after video ends
+                            carouselInstance.cycle(); // Resume automatic sliding
+                        };
+                    } else {
+                        video.pause();
+                        video.currentTime = 0; // Reset video when sliding away
+                    }
+                });
+            });
+        </script>
+        
+        <!-- Ensure Bootstrap JavaScript is loaded -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+
+
+    <section class="container my-5">
+        <h2 class="text-center text-white">Leo Club</h2>
+        <h3 class="mt-4 text-white">Upcoming Events</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Tree%20Plantation%20Drive'">
+                    <img src="tree.jpeg" alt="Tree Plantation">
+                    <h4>Tree Plantation Drive</h4>
+                    <p>Join us in making the world greener by planting trees.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Blood%20Donation%20Camp'">
+                    <img src="blood.jpeg" alt="Blood Donation">
+                    <h4>Blood Donation Camp</h4>
+                    <p>Donate blood and save lives in this noble initiative.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Clean%20City%20Mission'">
+                    <img src="clean city.jpg" alt="Clean City Mission">
+                    <h4>Clean City Mission</h4>
+                    <p>Contribute towards a cleaner and healthier city.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Health%20Awareness%20Campaign'">
+                    <img src="haw.jpg" alt="Health Awareness">
+                    <h4>Health Awareness Campaign</h4>
+                    <p>Spread awareness on health and hygiene for better living.</p>
+                </div>
+            </div>
+        
+        </div>
+    </section>
+
+    <footer class="text-center bg-dark text-white py-3">
+        &copy; 2025 Rajalakshmi Engineering College | Event Registration Portal
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 100.00,
+            minWidth: 100.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x8c3fff,
+            backgroundColor: 0x0d0d0d,
+            maxDistance: 23.00
+        });
+    </script>
+</body>
+</html>

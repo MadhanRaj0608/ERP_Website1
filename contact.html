@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Contact Us Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+        .container {
+            width: 85%;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 6px;
+            padding: 20px 60px 30px 40px;
+            box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        .container .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container .content .left-side {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container .content .right-side {
+            width: 65%;
+        }
+        .content .left-side .details {
+            margin: 20px;
+            text-align: center;
+        }
+        .content .left-side .details i {
+            font-size: 30px;
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+        .right-side .input-box {
+            margin: 10px 0;
+        }
+        .right-side .input-box input, .right-side .input-box select, .right-side .input-box textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            outline: none;
+        }
+        .right-side .input-box select {
+            cursor: pointer;
+        }
+        .right-side .input-box textarea {
+            min-height: 100px;
+            resize: none;
+        }
+        .right-side .button {
+            display: inline-block;
+            margin-top: 12px;
+        }
+        .right-side .button input {
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            background: #ffcc00;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .right-side .button input:hover {
+            background: #e6b800;
+        }
+        @media (max-width: 950px) {
+            .container {
+                width: 90%;
+                padding: 30px 40px 40px 35px;
+            }
+            .container .content {
+                flex-direction: column-reverse;
+            }
+            .container .content .left-side, .container .content .right-side {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+                <div class="details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Address</div>
+                    <div class="text-one">LMM STREET, CHENNAI</div>
+                    <div class="text-two">TN, INDIA</div>
+                </div>
+                <div class="details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Phone</div>
+                    <div class="text-one">+91 7904823291</div>
+                    <div class="text-two">+91 9655221183</div>
+                </div>
+                <div class="details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div>
+                    <div class="text-one">abc@gmail.com</div>
+                    <div class="text-two">lokeshjayan2004@gmail.com</div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="topic-text">Send us a message</div>
+                <p>If you have any inquiries, feel free to reach out!</p>
+                <form action="contact.php" method="POST" onsubmit="return validateForm()">
+                    <div class="input-box">
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="input-box">
+                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="input-box">
+                        <select id="inquiry" name="inquiry">
+                            <option value="">Select Inquiry Type</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="collaboration">Collaboration</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Send Now">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Vanta Background
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 100.00,
+            minWidth: 100.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xffcc00,
+            backgroundColor: 0x0d0d0d,
+            maxDistance: 23.00
+        });
+
+        // Front-end validation
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let inquiry = document.getElementById("inquiry").value;
+            let message = document.getElementById("message").value.trim();
+
+            if (name === "" || email === "" || inquiry === "" || message === "") {
+                alert("All fields are required.");
+                return false;
+            }
+            if (!email.includes("@") || !email.includes(".")) {
+                alert("Enter a valid email address.");
+                return false;
+            }
+
+            return true; // Let PHP handle the rest
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cultural Club | REC</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    .event-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      color: white !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .event-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    #vanta-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    .fixed-media {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .insta-icon {
+      width: 40px;
+      height: 40px;
+      margin-top: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .insta-text {
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+    }
+
+    .insta-link {
+      text-decoration: none;
+    }
+
+    .insta-icon:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="vanta-bg"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">REC Event Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container my-5">
+    <h2 class="text-center text-white">RECHARGE REC</h2>
+    <div class="row my-5">
+      <div class="col-md-6">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+              <img src="recharge2.png" class="d-block w-100 fixed-media" alt="Slide 1">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="recharge3.png" class="d-block w-100 fixed-media" alt="Slide 2">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="recharge5.png" class="d-block w-100 fixed-media" alt="Slide 3">
+            </div>
+             
+            <div class="carousel-item">
+              <video class="d-block w-100 fixed-media" id="carouselVideo" controls>
+                <source src="rechargemp4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-6 text-white">
+        <h2>About RECHARGE REC</h2>
+        <p>Rajalakshmi Institutions is thrilled to present its most vibrant and energetic cultural fest - Recharge 2025, which raises energy, expectations and stakes for the students exponentially every year, providing them with the largest platform to express themselves and rediscover their hidden talents and passion.
+
+            Recharge is Rajalakshmi Engineering College's signature, annual, intercollegiate cultural fest. The previous installments of Recharge and the other fests held at REC were massive successes and featured celebrity guests across various fields of the entertainment industry. Showcasing music giants like Jonita Gandhi, Santhosh, Narayanan, Andrea Jeremiah, DJ Gowtham and bands like Masala Coffee, REC went a step farther and also brought in eminent sports persons like Kris Srikkanth, T. Natarajan, Dwayne Bravo and Chinna Thala Suresh Raina. Showbiz personalities like Gautham Vasudev Menon and Karthi Sivakumar also stole the limelight.
+            
+            Boasting over 100+ events, ranging from music and dance to sports and various other exciting genres, Recharge'25 is set to provide students from across the nation a platform to showcase their talents and express themselves. Recharge'25 will feature an exciting lineup of celebrities, covering electrifying music performances from musical guests and DJs, as well as iconic personalities with a sports background.</p>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+          <a href="https://www.instagram.com/recharge_fest/" target="_blank" class="insta-link d-flex align-items-center text-decoration-none">
+            <img src="insta icon.webp" alt="Instagram" class="insta-icon">
+            <span class="insta-text ms-2">@RECHARGE REC</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <h2 class="text-center text-white">Cultural Club</h2>
+    <h3 class="mt-4 text-white">Upcoming Events</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Dance%20Battle'">
+          <img src="dance.webp" alt="Dance Battle">
+          <h4>Dance Battle</h4>
+          <p>Showcase your best moves in this electrifying dance competition.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Music%20Fiesta'">
+          <img src="music fest.jpg" alt="Music Fiesta">
+          <h4>Music Fiesta</h4>
+          <p>Experience the magic of music with live performances.</p>
+        </div>
+      </div>
+      <div class="col-md-6 mt-4">
+        <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Art%20Exhibition'">
+          <img src="art.webp" alt="Art Exhibition">
+          <h4>Art Exhibition</h4>
+          <p>Explore creativity at its finest in our grand art showcase.</p>
+        </div>
+      </div>
+      <div class="col-md-6 mt-4">
+        <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Drama%20Night'">
+          <img src="drama.png" alt="Drama Night">
+          <h4>Drama Night</h4>
+          <p>Witness the thrill of live theatre with captivating performances.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center bg-dark text-white py-3">
+    &copy; 2025 Rajalakshmi Engineering College | Event Registration Portal
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 100.00,
+      minWidth: 100.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x8c3fff,
+      backgroundColor: 0x0d0d0d,
+      maxDistance: 23.00
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const carousel = document.getElementById("carouselExampleIndicators");
+      const video = document.getElementById("carouselVideo");
+      const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+
+      carousel.addEventListener("slid.bs.carousel", function (event) {
+        const activeItem = carousel.querySelector(".carousel-item.active");
+
+        if (activeItem.contains(video)) {
+          carouselInstance.pause();
+          video.play();
+
+          video.onended = function () {
+            carouselInstance.next();
+            carouselInstance.cycle();
+          };
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
